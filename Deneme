@@ -1,0 +1,78 @@
+bir script vs oluştururken ilk harfte küçük i harfi flaan kullanmamaya dikkat et 
+çünkü "class" lar oluşurken büyük küçük harfle yazılma derkne sıkıntı oluyo 
+
+Bu kodların kütüphanelerini sonra ekleyeceğim
+
+Konsola ekrana yazdırma
+    Debug.Log("Oyuncu oksijene çarptı");
+    Debug.Log(toplananOksijen);
+
+Text i değiştirme
+    toplananOksijenTxt.text = "Toplanan Oksijen : "+toplananOksijen.ToString();
+
+Bir artırma
+    toplananOksijen++;
+
+
+SAHNE YÖNETİMİ
+Bir Sahne Geriye
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+Bir Sahne İleriye
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+Sahneyi Tekrar Oynat
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+Oyunu kapat
+    Application.Quit();
+
+Bir objenin silikten gelmesi
+    void RenginiAc() {
+    gameNameText.GetComponent<CanvasGroup>().DOFade(1, 0.8f);
+    Obje.GetComponent<CanvasGroup>().DOFade(kaça çıkacağı, kaç snde çıkacağı).SetDelay(Kaç sn bekleyip başlayacağı);
+    }
+
+
+ZAMAN
+Bir saniye bu satırda bekle
+    yield return new WaitForSeconds(1f);
+
+OBJELER / ELEMENTLER
+Objeleri göster gizle
+    quizBasariliSonucPaneli.SetActive(false);
+    quizBasarisizSonucPaneli.SetActive(true);
+
+Objeyi tamamen yok etme
+    Destroy(gameObject);
+
+DEĞİŞKENLER
+İç Panelden müdahale edebilmek
+    [SerializeField] int toplananOksijen;
+    başına serial gelmeli
+
+ÇARPMALAR
+   if (collision.gameObject.CompareTag("etiket_adi"))
+   eğer bu etikete çarpmışsa dokunmuşsa
+
+KONTROLLER
+if (toplananOksijen >= 30) 30 veya üstü olduğunda
+if (zeminde == true) true ya denk olduğunda
+if (zeminde == 30) 30 a denk olduğunda
+if (collision.gameObject.CompareTag("etiket_adi")) etikete çarptığında dokunduğunda
+if (Input.GetKeyDown(KeyCode.Space)) Boşluğa bastığında
+
+
+
+public void YeniOksijenUretirkenBoslukBirak()
+    {
+        float randomWait = Random.Range(0.1f, 1.2f);
+        Invoke("oksijenUret",randomWait);
+    }
+
+
+YORUM SATIRLARI
+Ctrl+K+C yaparsan seçiğini yorum yapar
+
+    [Tooltip("Buraya yazdığın değişken hakkında açıklama yapmanı sağlar")]
+    public float JumpPower; 
